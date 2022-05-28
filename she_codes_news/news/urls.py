@@ -4,5 +4,7 @@ from . import views
 app_name = 'news'
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index')
+    path('', views.IndexView.as_view(), name='index'),
+    path('story/<int:pk>/', views.StoryView.as_view(), name='story')
 ]
+
