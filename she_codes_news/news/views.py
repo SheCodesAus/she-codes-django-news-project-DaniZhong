@@ -1,6 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import NewsStory
+from users.models import CustomUser
 from .forms import StoryForm
 
 class IndexView(generic.ListView):
@@ -15,6 +16,18 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date').all()[:4]
         context['all_stories'] = NewsStory.objects.all().order_by('-pub_date')
         return context
+
+class SearchResultsView(generic.ListView):
+    model = NewsStory
+    template_name = 'news/search_results.html'
+    
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        author_id= CustomUser.objects.get(username = query).id
+        object_list = NewsStory.objects.filter(author = author_id)
+        return object_list
+
+
 
 class StoryView(generic.DetailView):
     model = NewsStory
