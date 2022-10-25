@@ -5,8 +5,9 @@
 {% endblock %}
 {% block content %}
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h5>{{ story.title }}</h5>
+    <h4 id="story-author">{{ story.author }}</h4>
+    <h4 id="story-date">{{ story.pub_date }}</h4>
     <div id="story-content">
         <img src="{{ story.img_src }}">
         {{ story.content|linebreaks }}

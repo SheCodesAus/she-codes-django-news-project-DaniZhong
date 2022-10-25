@@ -10,4 +10,4 @@ class NewsStory(models.Model):
     )
     pub_date = models.DateTimeField()
     content = models.TextField()
-    img_src= models.CharField(max_length=200, default='string:image source')
+    img_src= models.CharField(max_length=200, default='please upload the link of your feature photo')

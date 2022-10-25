@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
+    <h5>Hi {{user.username}}, check out the stories shared by your favourite author!</h5>
     <div id="all-stories">
         {% if object_list %}
             {% for story in object_list %}

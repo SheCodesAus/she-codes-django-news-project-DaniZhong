@@ -9,13 +9,14 @@
     <div id="write_search_story">
         
         {% if request.user.is_authenticated %}
-            <a id="nav_write_story" href="{% url 'news:newStory' %}">Write New Story</a>
+            <p id="nav_write_story" >Hi {{user.username}}, welcome back to the SheCodes community!</p>
         {% else %} 
-            <p id="nav_write_story">Create an account and login to write stories!</p>
+            <p id="nav_write_story">Welcome to the SheCodes community! Join us and share your stories!</p>
         {% endif %}
 
         <form id="search_form" action="{% url 'news:search_results' %}" method="get">
-            <input name="q" type="text" placeholder="Search stories by author">
+            <input required id="search_input" name="q" type="text" placeholder="Search stories by author">
+            <button type="submit"><img src="https://dani-image-assets.s3.ap-southeast-2.amazonaws.com/Icons/search_icon.png"></button>
         </form>
 
     </div>
